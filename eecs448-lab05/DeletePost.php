@@ -15,7 +15,7 @@ else {
   for ($i = 0; $i < $N; $i++) {
     if ($post[$i]) {
       $id = $post[$i];
-      $mysqli->escape_string($user);
+      $mysqli->escape_string($id);
       $query = "DELETE FROM Posts WHERE post_id = '$id'";
       $mysqli->query($query);
       echo "Post id " . $id . " deleted.<br>";
