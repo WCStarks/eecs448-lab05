@@ -1,0 +1,22 @@
+<html>
+  <head>
+      <title>User Posts</title>
+  </head>
+  <body>
+    <form action="ViewUserPosts.php" method="post">
+      <select name="user">
+    <?php
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "wstarks050", "eiH7nahs", "wstarks050");
+    $query = "SELECT user_id FROM Users";
+    $result = $mysqli->query($query);
+    while ($row = $result->fetch_assoc()) {
+      echo "<option value=" . $row['user_id'] . ">" . $row['user_id'] . "</option>";
+    }
+    $result->free();
+    $mysqli->close();
+    ?>
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
